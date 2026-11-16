@@ -1,0 +1,21 @@
+# Render Blueprint — keep this file at the repository root.
+services:
+  - type: web
+    name: vailac-server
+    runtime: docker
+    rootDir: VailACServer
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: AntiCheat__AdminPassword
+        sync: false
+      - key: AntiCheat__GameServerKey
+        sync: false
+      - key: AntiCheat__DatabasePath
+        value: /var/data/vailac.db
+    disk:
+      name: vailac-data
+      mountPath: /var/data
+      sizeGB: 1
