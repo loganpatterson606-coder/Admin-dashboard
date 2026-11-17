@@ -1,0 +1,12 @@
+namespace VailACServer;
+public sealed record HandshakeRequest(string PlayerId,string GameVersion,string Platform,long Timestamp,string ClientNonce);
+public sealed record HandshakeResponse(bool Success,string? SessionToken=null,string? ServerNonce=null,string? Challenge=null,string? Error=null);
+public sealed record FileHashEntry(string RelativePath,string Sha256,long FileSize=0,long LastModified=0);
+public sealed record IntegrityReport(string SessionToken,string PlayerId,long Timestamp,string ReportHmac,List<FileHashEntry> FileHashes,List<string> RunningProcesses,bool ModuleBaseIntact,bool ImportTableIntact,bool DetectedDebugger,bool DetectedVirtualMachine,string? OsVersion,string? MachineId,string ChallengeResponse);
+public sealed record IntegrityResponse(bool Passed,string Reason,int ViolationCode=0,string? NewChallenge=null);
+public sealed record AdminLogin(string Password);
+public sealed record BanRequest(string PlayerId,string? MachineId,string Reason);
+public sealed record GrantRequest(bool? CanFly,bool? CanTeleport,bool? CanOpenAdminMenu,double? MaxSpeed,double? MaxVerticalSpeed,string? Note);
+public sealed record PlayerPolicy(string PlayerId,bool CanFly,bool CanTeleport,bool CanOpenAdminMenu,double MaxSpeed,double MaxVerticalSpeed,double MaxTeleportDistance,string? Note);
+public sealed record MovementSample(string PlayerId,long Timestamp,double X,double Y,double Z,double VelocityX,double VelocityY,double VelocityZ,double DeltaSeconds,bool IsTeleport=false);
+public sealed record ViolationRecord(long Id,string PlayerId,string? MachineId,int Code,string Details,int Score,DateTimeOffset CreatedAt);
