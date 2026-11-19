@@ -1,6 +1,0 @@
-{
-  "lib/arm64-v8a/libil2cpp.so": "cb6485e149cb4416f7af36a3a16d524302dfbe16a4584155cc3d27c00f66aa61",
-  "assets/bin/Data/Managed/Metadata/global-metadata.dat": "d2c22e9b9ddf07878490be70e29778b928c0dcf49d5a16ffb5666d5dfa9d55a7",
-  "lib/arm64-v8a/libunity.so": "91aa525c3855caca238aabaf86e6e66eefcd3158d88cb464799d389db7abe293",
-  "lib/arm64-v8a/libgame.so": "41c4efa72c1230c19e047348983db7988b698d79f5cfb07672a519eedb101257"
-}
